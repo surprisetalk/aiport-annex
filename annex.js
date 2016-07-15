@@ -13,7 +13,7 @@ module.exports = ( annex_name, params, query ) =>
     
     return _.contains( annexes, annex_name )
 	// TODO: check if exists
-	? require('../aiport-annex-package/package.js')( params, query )
+	? require('../aiport-annex-' + annex_name)( params, query )
 	// ? require( root + "/aiport-annex-" + annex_name )( params, query )
 	: Promise.reject( { code: 404, msg: "could not find annex named " + annex_name } );
 };
